@@ -1,0 +1,37 @@
+//-------------------------------------------------------
+//- Modules :: Datetimepicker
+//-------------------------------------------------------
+
+mixin datetimePicker({id, label, smallLabel, firstIcon, lastIcon, placeholder, disabled})
+  .datetimepicker.form-group.form-customize(
+    id= id ? id : null
+    data-target-input= "nearest"
+    )&attributes(attributes)
+    .input-group.date
+      if firstIcon
+        span.ic-datetime(class= firstIcon)
+      .input-append
+        +input-field({ type, placeholder, value })(
+          id= id ? id : null
+          class= 'datetimepicker-input'
+          data-target= '#' + id
+          data-toggle= "datetimepicker"
+          disabled= disabled ? disabled : null
+          class=disabled ? `form-control--${disabled}` : null
+        )
+        label(
+          for= id ? id : null
+        )= label
+          if smallLabel
+            span= smallLabel
+        span.input-field-icon(
+          for= id ? id : null
+          class= lastIcon
+          data-target= '#' + id
+          data-toggle= "datetimepicker"
+        )
+
+mixin datetimePickerInline({id})
+  .datetimepicker.form-group.form-customize(
+    id= id ? id : null
+    )&attributes(attributes)

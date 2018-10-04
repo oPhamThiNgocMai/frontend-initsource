@@ -1,2 +1,1 @@
-# frontend-initsource
-init source pug
+# lawson-sharing

@@ -1,0 +1,232 @@
+// ======================================================
+// Components :: Selectboxes
+// ======================================================
+
+.custom-selectbox {
+  width: 100%;
+  position: relative;
+
+  $upstream: &;
+
+  &__item {
+    font-size: $font-size-medium;
+    color: $cl-black;
+    border-bottom: 1px solid $cl-light-gray;
+    padding: 10px 16px;
+    transition: color .3s ease;
+    white-space: normal;
+    line-height: 22px;
+
+    &:last-child {
+      border-bottom-color: transparent;
+    }
+
+    &:hover,
+    &.active {
+      background-color: transparent;
+      color: $cl-blue;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 30px 0 0;
+    text-align: left;
+    font-family: $font-size-medium;
+    color: $cl-gray;
+    background: $cl-white;
+    border: 0;
+    border-bottom: 2px solid $border-gray;
+    border-radius: 0;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      color: $cl-light-black;
+      text-decoration: none;
+      border-bottom-color: $cl-blue;
+
+      &::after {
+        border-top-color: $cl-blue;
+      }
+    }
+
+    &::after {
+      vertical-align: middle;
+      position: absolute;
+      z-index: 1;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 7px solid $cl-light-black;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+  }
+
+  // scss-lint:disable ColorVariable
+  &__menu {
+    min-width: 100%;
+    right: 0;
+    border: 0;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, .15);
+    border-radius: 3px;
+  }
+
+  &__list {
+    max-height: 320px;
+    overflow: auto;
+  }
+
+  &__label {
+    position: absolute;
+    background-color: $cl-white;
+    width: 100%;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-base;
+    color: $cl-gray;
+    top: 14px;
+    transition: all 450ms cubic-bezier(.23, 1, .32, 1) 0ms;
+    z-index: 1;
+    transform: scale(1) translate(0, 0);
+    transform-origin: left top 0;
+    pointer-events: none;
+    user-select: none;
+
+    &.label-ontop {
+      font-size: $font-size-small;
+      top: -18px;
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__avatar {
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
+    background-color: $cl-white;
+    border-radius: $border-radius-small;
+    border: 1px solid $cl-light-black;
+  }
+
+  &__username {
+    font-size: $font-size-medium;
+    color: $cl-light-black;
+    font-weight: $font-weight-bold;
+  }
+
+  &--image {
+    #{$upstream}__toggle {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    #{$upstream}__item {
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      &:hover {
+        // stylelint-disable-next-line
+        #{$upstream}__username {
+          color: $cl-white;
+        }
+      }
+
+      &.active {
+        // stylelint-disable-next-line
+        #{$upstream}__username {
+          color: $cl-white;
+        }
+      }
+    }
+  }
+
+  &--small {
+    #{$upstream}__label {
+      margin-bottom: 4px;
+    }
+
+    #{$upstream}__toggle {
+      height: 36px;
+      line-height: 36px;
+      font-size: $font-size-small;
+      background-size: 11px;
+
+      &::after {
+        border-top: 7px solid $cl-light-black;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+      }
+    }
+
+    #{$upstream}__item {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      font-size: $font-size-small;
+      line-height: 12px;
+    }
+
+    #{$upstream}__label {
+      top: 8px;
+
+      &.label-ontop {
+        top: -18px;
+      }
+    }
+
+    #{$upstream}__input {
+      .form-control {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  &.show {
+    > label {
+      top: -18px;
+      color: $cl-blue;
+    }
+
+    .dropdown-toggle {
+      border-bottom-color: $cl-blue;
+
+      &::after {
+        border-top-color: $cl-blue;
+      }
+    }
+  }
+
+  &__disabled {
+    pointer-events: none;
+    border-bottom: 1px solid $cl-gray;
+    color: $cl-gray;
+  }
+
+  &__input {
+    padding: 0 8px 8px;
+    border-bottom: 1px solid $cl-light-gray;
+
+    .form-control {
+      border-radius: 3px;
+      border-color: $cl-light-gray;
+      font-size: $font-size-medium;
+
+      &::placeholder {
+        color: darken($cl-light-gray, 5%);
+      }
+
+      &:focus {
+        border-color: $cl-blue;
+      }
+    }
+  }
+}

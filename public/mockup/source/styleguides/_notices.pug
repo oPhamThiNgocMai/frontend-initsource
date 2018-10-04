@@ -1,0 +1,80 @@
+//-------------------------------------------------------
+//- Styleguides :: Notices
+//-------------------------------------------------------
+
+//- Notices :: Type
+h2 Notices Type
+-
+  var noticeTypes = [
+    { type: 'success' },
+    { type: 'error' },
+    { type: 'info' }
+  ];
+
+.row
+  each val in noticeTypes
+    .col-12
+      .code-example
+        .demo
+          +notices({
+            message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。',
+            type: val.type
+          })
+        pre
+          code
+            | +notices({
+            |   message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。',
+            |   type: '#{val.type}'
+            | })
+
+//- Notices :: Icon
+h2 Notice Icon
+
+.row
+  .col-12
+    .code-example
+      .demo
+        +notices({
+          message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          type: 'success',
+          iconFont: 'fas fa-check-circle'
+        })(class= 'notice--icons')
+      pre
+        code
+          | +notices({
+          |   message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          |   type: 'success'
+          |   iconFont: 'fas fa-check-circle'
+          | })
+
+  .col-12
+    .code-example
+      .demo
+        +notices({
+          message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          type: 'error',
+          iconFont: 'fas fa-exclamation-circle'
+        })(class= 'notice--icons')
+      pre
+        code
+          | +notices({
+          |   message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          |   type: 'error'
+          |   iconFont: 'fas fa-exclamation-circle'
+          | })
+
+  .col-12
+    .code-example
+      .demo
+        +notices({
+          message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          type: 'info',
+          iconFont: 'fas fa-info-circle'
+        })(class= 'notice--icons')
+      pre
+        code
+          | +notices({
+          |   message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+          |   type: 'info'
+          |   iconFont: 'fas fa-info-circle'
+          | })

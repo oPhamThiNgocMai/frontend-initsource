@@ -1,0 +1,297 @@
+//-------------------------------------------------------
+//- Styleguides :: Selectboxes
+//-------------------------------------------------------
+
+.row
+  .col-6
+    h2 Selectbox button (standard)
+    .code-example
+      .demo
+        -
+          const foo = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        +custom-selectbox({
+          isSelectButton: true,
+          label: 'your label',
+          id: 'your-id-1',
+          defaultValue: 'Selectbox button standard',
+          options: foo,
+        })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   var options = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | +custom-selectbox({
+          |   isSelectButton: true,
+          |   label: 'your label',
+          |   id: 'your-id-1',
+          |   defaultValue: 'Selectbox button standard',
+          |   options
+          |  })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox button (small)
+    .code-example
+      .demo
+        -
+          const bar = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        +custom-selectbox({
+          isSelectButton: true,
+          label: 'your label',
+          id: 'your-id-2',
+          size: 'small',
+          defaultValue: 'Selectbox button small',
+          options: bar,
+        })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   var options = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | +custom-selectbox({
+          |   isSelectButton: true,
+          |   label: 'your label',
+          |   id: 'your-id-2',
+          |   size: 'small',
+          |   defaultValue: 'Selectbox button small',
+          |   options
+          |  })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox link (standard)
+    .code-example
+      .demo
+        -
+          const foobar = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        +custom-selectbox({
+          label: 'your label',
+          id: 'your-id-3',
+          defaultValue: 'Selectbox link standard',
+          options: foobar,
+        })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   var options = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | +custom-selectbox({
+          |   label: 'your-label',
+          |   id: 'your-id-3',
+          |   defaultValue: 'Selectbox link standard',
+          |   options
+          |  })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox link (small)
+    .code-example
+      .demo
+        -
+          const bob = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        +custom-selectbox({
+          label: 'your label',
+          id: 'your-id-4',
+          size: 'small',
+          defaultValue: 'Selectbox link small',
+          options: bob,
+        })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   var options = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | +custom-selectbox({
+          |   label: 'your-label',
+          |   id: 'your-id-4',
+          |   size: 'small',
+          |   defaultValue: 'Selectbox link small',
+          |   options
+          |  })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox Filter (standard)
+    .code-example
+      .demo
+        -
+          const inputFilter = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+            { id: 5, value: 'option 4' },
+            { id: 6, value: 'option 4' },
+            { id: 7, value: 'option 4' },
+            { id: 8, value: 'option 4' },
+            { id: 9, value: 'option 4' },
+          ];
+
+        .filter-selectbox
+          +custom-selectbox({
+            label: 'your label',
+            id: 'your-id-4a',
+            defaultValue: 'Selectbox link standard',
+            options: inputFilter,
+            dropInput: true,
+            placeholder: 'Enter keyword'
+          })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   const inputFilter = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | .filter-selectbox
+          |   +custom-selectbox({
+          |     label: 'your-label',
+          |     id: 'your-id-4a',
+          |     defaultValue: 'Selectbox link standard',
+          |     options: inputFilter,
+          |     dropInput: true,
+          |     placeholder: 'Enter keyword'
+          |   })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox Filter (small)
+    .code-example
+      .demo
+        -
+          const inputFilterSmall = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        .filter-selectbox
+          +custom-selectbox({
+            label: 'your label',
+            id: 'your-id-4a',
+            size: 'small',
+            defaultValue: 'Selectbox link small',
+            options: inputFilterSmall,
+            dropInput: true,
+            placeholder: 'Enter keyword'
+          })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   const inputFilterSmall = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | .filter-selectbox
+          |   +custom-selectbox({
+          |     label: 'your-label',
+          |     id: 'your-id-4a',
+          |     size: 'small',
+          |     defaultValue: 'Selectbox link small',
+          |     options: inputFilterSmall,
+          |     dropInput: true,
+          |     placeholder: 'Enter keyword'
+          |   })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox disabled
+    .code-example
+      .demo
+        -
+          const filterDisable = [
+            { id: 1, value: 'option 1' },
+            { id: 2, value: 'option 2' },
+            { id: 3, value: 'option 3' },
+            { id: 4, value: 'option 4' },
+          ];
+
+        .filter-selectbox
+          +custom-selectbox({
+            label: 'your label',
+            id: 'filter-disable',
+            smallLabel: 'small',
+            defaultValue: 'Selectbox link small',
+            options: filterDisable,
+            disabled: 'disabled'
+          })(class='js-staff-selectbox')
+
+      pre
+        code
+          | -
+          |   const filterDisable = [
+          |     { id: 1, value: 'option 1' },
+          |     { id: 2, value: 'option 2' },
+          |     { id: 3, value: 'option 3' },
+          |     { id: 4, value: 'option 4' },
+          |   ];
+          |
+          | .filter-selectbox
+          |   +custom-selectbox({
+          |     label: 'your-label',
+          |     id: 'filter-disable',
+          |     defaultValue: 'Selectbox link small',
+          |     options: filterDisable,
+          |     disabled: 'disabled'
+          |   })(class='js-staff-selectbox')
+
+  .col-6
+    h2 Selectbox link image
+    .code-example
+      .demo
+        +custom-selectbox-image({ id: 'foobar' })
+      pre
+        code
+          | +custom-selectbox-image({ id: 'foobar' })

@@ -1,0 +1,71 @@
+//-------------------------------------------------------
+//- Styleguides :: Modal
+//-------------------------------------------------------
+
+h2 Modal
+
+.row
+  .col-6
+    .code-example
+      .demo
+        +buttons({
+          text: 'Cick here to show modal info',
+          type: 'primary',
+          size: 'large'
+        })(data-toggle="modal" data-target="#modal-demo")
+        +modal({
+          targetValue: 'modal-demo',
+          title: 'Title modal info',
+          closeIcon: true,
+          classToCustom: 'demo-box',
+          type: true
+        })
+          block modal-info
+            .modal-middle
+              .demo-box
+                p This is modal form
+                form.form-custom
+                  +group-input-field({
+                    label: '派遣期間',
+                    id: 'example-12'
+                  })
+
+                  +group-input-field({
+                    label: '発注日',
+                    id: 'example-12'
+                  })
+            .modal-footer.d-flex.justify-content-center.align-items-center
+              +buttons({
+                text: 'no',
+                type: 'secondary',
+                size: 'large'
+              })(class='m-3 pl-5 pr-5')
+              +buttons({
+                text: 'yes',
+                type: 'primary',
+                size: 'large'
+              })(class='m-3 pl-5 pr-5')
+
+  .col-6
+    .code-example
+      .demo
+        +buttons({
+          text: 'Cick here to show modal notice',
+          type: 'primary',
+          size: 'large'
+        })(data-toggle="modal" data-target="#modal-demo-custom")
+        +modal({
+          targetValue: 'modal-demo-custom',
+          title: 'Title modal notice',
+          closeIcon: true,
+          classToCustom: 'slack-box'
+        })
+          block modal-notice
+            .modal-middle
+              .slack-box
+                h4(class='modal-custom__title text-center mb-5 text-center') This is popup notice
+                +notices({
+                  message: 'ご登録のメールアドレス宛に再発行ページのURLを送信しました。メールをご確認ください。',
+                  type: 'success',
+                  iconFont: 'fas fa-check-circle'
+                })

@@ -1,0 +1,40 @@
+//-------------------------------------------------------
+//- Styleguides :: Errors
+//-------------------------------------------------------
+
+.code-example
+  .demo
+    +errors({
+      message: 'ご利用できないカードをご利用になった、もしくはカード番号が誤っています。'
+    })
+  pre
+    code
+      | +errors({
+      |   message: 'ご利用できないカードをご利用になった、もしくはカード番号が誤っています。'
+      | })
+
+.code-example
+  .demo
+    +errors({
+      message: '期限切れのクーポンコードです。',
+      type: 'large'
+    })
+  pre
+    code
+      | +errors({
+      |   message: '期限切れのクーポンコードです。',
+      |   type: 'large'
+      | })
+
+.code-example
+  .demo
+    +errors({
+      message: '〇〇文字以下で入力してください。',
+      type: 'text'
+    })
+  pre
+    code
+      | +errors({
+      |   message: '〇〇文字以下で入力してください。',
+      |   type: 'text'
+      | })

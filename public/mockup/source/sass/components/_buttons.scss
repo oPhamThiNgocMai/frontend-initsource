@@ -1,0 +1,95 @@
+// ======================================================
+// Components :: Buttons
+// ======================================================
+
+.button {
+  $block: &;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-medium;
+  line-height: 18px;
+  border-radius: 2px;
+  padding: 6px 20px;
+  transition: all .3s ease;
+
+  // Modifier: Type
+  @include m('primary') {
+    background-color: $cl-blue;
+    color: $cl-white;
+
+    // scss-lint:disable ColorVariable
+    &:hover {
+      background-color: $cl-light-blue;
+      box-shadow: 0 0 6px 0 lighten($cl-light-blue, 10%), 0 2px 10px 0 rgba(0, 0, 0, .2);
+    }
+  }
+
+  @include m('secondary') {
+    background-color: $cl-light-black;
+    color: $cl-white;
+
+    // scss-lint:disable ColorVariable
+    &:hover {
+      background-color: lighten($cl-light-black, 10%);
+      box-shadow: 0 0 6px 0 $cl-light-black, 0 2px 10px 0 rgba(0, 0, 0, .2);
+    }
+  }
+
+  @include m('danger') {
+    background-color: $cl-pink;
+    color: $cl-white;
+
+    // scss-lint:disable ColorVariable
+    &:hover {
+      background-color: $cl-light-pink;
+      box-shadow: 0 0 6px 0 $cl-light-pink, 0 2px 10px 0 rgba(0, 0, 0, .2);
+    }
+  }
+
+  @include m('disabled') {
+    background-color: $cl-light-gray;
+    color: $cl-white;
+
+    &:hover {
+      background-color: $cl-light-gray;
+      color: $cl-white;
+      box-shadow: none;
+    }
+  }
+
+  // Modifier: Size
+  @include m('extra-small') {
+    padding: 4px 20px;
+    font-size: $font-size-xsmall;
+  }
+
+  @include m('small') {
+    padding: 6px 25px;
+    font-size: $font-size-small;
+  }
+
+  @include m('large') {
+    padding: 14px 30px;
+  }
+
+  // Modifier: isFull
+  @include m('full') {
+    display: block;
+    width: 100%;
+  }
+
+  @include e('icon') {
+    // Allow using `inherit` in this case
+    // stylelint-disable-next-line sh-waqar/declaration-use-variable
+    color: inherit;
+    font-size: $font-size-medium;
+    margin-right: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -.125em;
+
+    @include m('after') {
+      margin-left: 12px;
+    }
+  }
+}

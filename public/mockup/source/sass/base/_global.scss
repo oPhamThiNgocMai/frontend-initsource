@@ -1,0 +1,42 @@
+// ======================================================
+// Base :: Global
+// ======================================================
+
+body {
+  font-size: $font-size-medium;
+  font-family: $font-family-base;
+  color: $cl-black;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.unstyled {
+  margin: 0;
+  padding: 0;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.h1 {
+  font-size: $font-size-xlarge;
+  font-weight: $font-weight-bold;
+}
+
+.h2 {
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+}
+
+.require {
+  color: $cl-pink;
+  font-size: $font-size-small;
+  font-weight: $font-weight-base;
+}

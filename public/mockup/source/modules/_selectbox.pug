@@ -1,0 +1,77 @@
+//-------------------------------------------------------
+//- Modules :: Selectboxes
+//-------------------------------------------------------
+
+mixin custom-selectbox({ isSelectButton, label, smallLabel, id: selectId, size, selectHeading, iconFont, defaultValue, options, disabled, dropInput, type, placeholder, value, inputRadio})
+  - const customSelectbox = 'custom-selectbox';
+  - const selectboxToggleClassName = `${customSelectbox}__toggle`;
+  - const customSelectboxClassName = `${size ? `${customSelectbox}--${size}` : ''}`;
+  - const dataToggle = 'dropdown';
+  - const btnType = 'button';
+  - const ariaHaspopup = 'true';
+  - const ariaExpanded = 'false';
+  - const dropdownLabel = 'dropdown-label';
+  //- End const
+  .custom-selectbox(class= customSelectboxClassName)&attributes(attributes)
+    if label
+      label(class=`${customSelectbox}__label`)= label
+        if smallLabel
+          span= smallLabel
+    if isSelectButton
+      button.dropdown-toggle(
+        id= selectId
+        class= selectboxToggleClassName
+        class=disabled ? `${customSelectbox}__${disabled}` : null
+        type= btnType
+        data-toggle= dataToggle
+        aria-haspopup= ariaHaspopup
+        aria-expanded= ariaExpanded
+        disabled= disabled
+      )
+        span(class= dropdownLabel)= defaultValue
+    else
+      a.dropdown-toggle(
+        id= selectId
+        class= selectboxToggleClassName
+        class=disabled ? `${customSelectbox}__${disabled}` : null
+        href='#'
+        role= btnType
+        data-toggle= dataToggle
+        aria-haspopup= ariaHaspopup
+        aria-expanded= ariaExpanded
+        disabled= disabled
+      )
+        span(class= dropdownLabel)= defaultValue
+    .dropdown-menu(class=`${customSelectbox}__menu` aria-labelledby= selectId)
+      if dropInput === true
+        .custom-selectbox__input
+          +input-field({type, placeholder, value,})(
+            type= type ? type : 'text'
+            placeholder= placeholder
+            value= value ? value : null
+          )
+      if selectHeading
+        .custom-selectbox__heading
+          if (iconFont !== '' && iconFont !== undefined)
+            +icon-fonts(iconFont)(class='dropdown-heading__icon')
+          span= selectHeading
+      .custom-selectbox__list
+        each option, index in options
+          a.dropdown-item(class=`${customSelectbox}__item ${index === 0 ? 'active' : ''}` href='#')= option.value
+            if inputRadio === true
+              input(type='radio' class=`${customSelectbox}__radio` id= option.id name= option.id value= option.id)
+
+mixin custom-selectbox-image({ id = 'dropdownMenuLinkWidthImage' })
+  - const customSelectbox = 'custom-selectbox';
+  - const imgSrc = 'http://i.pravatar.cc/26x26';
+  //- End const
+  .custom-selectbox(class=`${customSelectbox}--image`)&attributes(attributes)
+    a.dropdown-toggle(id= id class=`${customSelectbox}__toggle` href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+      img(class=`${customSelectbox}__avatar` src= imgSrc alt='')
+      span(class=`${customSelectbox}__username`) dropdown link standard
+    .dropdown-menu(aria-labelledby= id  class=`${customSelectbox}__menu`)
+      each val in [1, 2, 3]
+        a.dropdown-item(class=`${customSelectbox}__item ${val === 2 ? 'active' : ''}` href='#')
+          img(class=`${customSelectbox}__avatar` src= imgSrc)
+          span(class=`${customSelectbox}__username`) dropdown link standard
+          input(type='radio' class=`${customSelectbox}__radio` id= val name= val value= val)

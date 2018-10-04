@@ -1,0 +1,43 @@
+// ======================================================
+// Components :: Notices
+// ======================================================
+
+.notice {
+  $block: &;
+
+  font-weight: $font-weight-normal;
+  font-size: $font-size-medium;
+  line-height: 21px;
+  padding: 16px 24px;
+
+  // Modifier: Type
+  @include m('success') {
+    color: $cl-green;
+    background: $bg-light-green;
+    border: 1px solid $border-light-green;
+  }
+
+  @include m('error') {
+    color: $cl-pink;
+    background: $bg-light-pink;
+    border: 1px solid $border-light-pink;
+  }
+
+  @include m('info') {
+    color: $cl-blue;
+    background: $bg-light-blue;
+    border: 1px solid $border-light-blue;
+  }
+
+  @include m('icons') {
+    display: flex;
+    align-items: center;
+  }
+
+  // Modifier: Icon
+  @include e('icon') {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,70 @@
+// Color
+.color {
+  &--blue {
+    color: $cl-blue;
+  }
+
+  &--light-blue {
+    color: $cl-light-blue;
+  }
+
+  &--black {
+    color: $cl-black;
+  }
+
+  &--light-black {
+    color: $cl-light-black;
+  }
+
+  &--gray {
+    color: $cl-gray;
+  }
+
+  &--light-gray {
+    color: $cl-light-gray;
+  }
+
+  &--pink {
+    color: $cl-pink;
+  }
+
+  &--light-pink {
+    color: $cl-light-pink;
+  }
+
+  &--white {
+    color: $cl-white;
+  }
+
+  &--green {
+    color: $cl-green;
+  }
+
+  &--yellow {
+    color: $cl-yellow;
+  }
+}
+
+// Background Color
+.bg {
+
+  &--white {
+    background-color: $cl-white;
+  }
+
+  &--black {
+    background-color: $cl-black;
+  }
+
+  &--light-black {
+    background-color: $cl-light-black;
+  }
+
+  &--blue {
+    background-color: $cl-blue;
+  }
+
+  &--yellow {
+    background-color: $cl-yellow;
+  }
+}

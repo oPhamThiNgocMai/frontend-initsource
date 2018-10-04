@@ -1,0 +1,37 @@
+.modal-content {
+  border: 0;
+  border-radius: $border-radius-small;
+}
+
+//scss:disable
+.modal-header {
+  padding: .75rem;
+  border-bottom: 1px solid $border-light-gray;
+  background-color: $bg-light-gray;
+
+  .modal-title {
+    font-size: $font-size-large;
+    line-height: 1.4;
+  }
+}
+
+.modal-close {
+  font-size: $font-size-large;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-middle {
+  padding: 24px;
+}
+
+.modal-footer {
+  border-top: 1px solid $border-light-gray;
+}

@@ -1,0 +1,25 @@
+include ../modules/head/_head
+include ../modules/page-list/_page-list
+include ../modules/_plugin
+
+include ../modules/_buttons
+include ../modules/_forms
+include ../modules/_icons
+include ../modules/_errors
+include ../modules/_selectbox
+include ../modules/_notices
+include ../modules/_datetimepicker
+include ../modules/_modal
+
+include ../modules/header/_header
+include ../modules/footer/_footer
+include ../modules/menu/_menu
+include ../modules/_sidebar
+
+doctype html
+html(lang='en')
+  head
+    block head
+  body
+    block body
+  +plugins()

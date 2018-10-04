@@ -1,0 +1,53 @@
+//- Pick colors from this site: https://www.materialpalette.com/colors
+-
+  const catogoryColors = [
+    { cat: 'Login', color: '#006666' },
+    { cat: 'Dashboard', color: '#1984c6' },
+    { cat: 'Order', color: '#0b5b0d' },
+    { cat: 'Account', color: '#671882' },
+    { cat: 'Manager', color: '#e07c11' },
+    { cat: 'Staff Entry', color: '#cc33ff' },
+    { cat: 'Staff Login', color: '#ad0174' },
+    { cat: 'Staff Mypage', color: '#00897b' },
+    { cat: 'Owner Info', color: '#999900' },
+    { cat: 'Project', color: '#84021c' },
+    { cat: 'Staff Work', color: '#43a047' },
+    { cat: 'Staff Home', color: '#0520a8' },
+    { cat: 'Print', color: '#8470ff' },
+    { cat: 'Static Page', color: '#cd853f' }
+  ];
+
+mixin column(data, num)
+  th= (num)
+  td
+    - if(data.url == '')
+        span.page-list__link= data.title
+    - else
+        a(href=data.url + '.html' style='color: #fff' target='_blank').page-list__link= data.title
+  td
+    - if(data.categories != '')
+        span.page-list__categories= data.categories
+  td
+    - if(data.url != '')
+        span.page-list__file-name= data.url + '.html'
+
+mixin page-list(data)
+  .container
+    h1.page-list__title Page list
+    table.table(style='color: #fff')
+      thead
+        tr(style='background-color: black')
+          th #
+          th Link
+          th Categories
+          th Name Of Screen
+      each ent, num in data
+        - let found = false
+        each color in catogoryColors
+          if color.cat === ent.categories
+            - found = true
+            tr(style=`background-color: ${color.color}`)
+              +column(ent, num)
+        if !found
+          tr(style='background-color: gray')
+            +column(ent, num)
