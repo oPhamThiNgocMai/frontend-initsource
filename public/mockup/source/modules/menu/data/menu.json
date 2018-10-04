@@ -1,0 +1,63 @@
+{
+  "menus": {
+    "1": {
+      "text": "ホーム",
+      "icon": "fas fa-home",
+      "active": true
+    },
+    "2": {
+      "text": "発注",
+      "icon": "fas fa-file-alt",
+      "submenu": {
+        "1": {
+          "text": "発注作成"
+        },
+        "2": {
+          "text": "発注一覧"
+        }
+      }
+    },
+    "3": {
+      "text": "案件",
+      "icon": "fas fa-list-ul",
+      "submenu": {
+        "1": {
+          "text": "案件一覧"
+        },
+        "2": {
+          "text": "利用実績（明細）"
+        }
+      }
+    },
+    "4": {
+      "text": "契約書類",
+      "icon": "fas fa-file-excel",
+      "submenu": {
+        "1": {
+          "text": "抵触日通知"
+        },
+        "2": {
+          "text": "労働者派遣通知書"
+        },
+        "3": {
+          "text": "労働者派遣個別契約書"
+        },
+        "4": {
+          "text": "派遣先管理台帳"
+        }
+      }
+    },
+    "5": {
+      "text": "派遣先管理台帳",
+      "icon": "fas fa-cog",
+      "submenu": {
+        "1": {
+          "text": "法人・現場"
+        },
+        "2": {
+          "text": "利用者"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.main-footer {
+  height: 64px;
+  background-color: $cl-white;
+  color: darken($cl-dark-gray, 1%);
+  position: relative;
+
+  &--absolute {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    width: calc(100% - 64px);
+    transform: translateX(-50%);
+
+    @media (max-width: 991px) {
+      width: 100%;
+      bottom: 0;
+    }
+  }
+}

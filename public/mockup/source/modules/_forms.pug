@@ -1,0 +1,203 @@
+//-------------------------------------------------------
+//- Modules :: Forms
+//-------------------------------------------------------
+
+//- Input Field
+mixin input-field({ type, placeholder, value })
+  input.form-control(
+    type= type ? type : 'text'
+    placeholder= placeholder ? placeholder : null
+    value= value ? value : null
+  )&attributes(attributes)
+
+//- Input Field has label
+mixin group-input-field({ label, id, type, placeholder, value, readonly, iconLabel, smallLabel, iconFont ,noticeError, noteText })
+  .form-group.form-customize&attributes(attributes)
+    +input-field({ type, placeholder, value })(
+      id= id ? id : null
+      placeholder= placeholder
+      value= value ? value : null,
+      readonly= readonly ? readonly : null
+    )
+    if label
+      label(
+        for= id ? id : null
+      )
+        if (iconLabel !== '' && iconLabel !== undefined)
+          +icon-fonts(iconLabel)
+        | #{label}
+        if smallLabel
+          span= smallLabel
+    if (iconFont !== '' && iconFont !== undefined)
+      span.toggle-icon
+        +icon-fonts(iconFont)
+    if noticeError
+      p.error-notice= noticeError
+    if noteText
+      p.note-text= noteText
+    block action-buttons
+
+
+//- Input List Color has label
+mixin group-input-list-color({ label, id, type, placeholder, value, smallLabel })
+  .form-group.form-list-color&attributes(attributes)
+    label(
+      for= id ? id : null
+    )= label
+      if smallLabel
+        span= smallLabel
+    .list-box.d-flex.justify-content-between.align-items-center
+      ul.unstyled.list-box__color.d-flex.justify-content-start
+        -
+          var data = [
+            '#1a1a1a',
+            '#555',
+            '#4d4d4d',
+            '#8a8a8a',
+            '#e5e5e5',
+            '#0a76be',
+            '#3090cf',
+            '#f5748b',
+            '#f4879a',
+            '#145e16',
+            '#f5a623',
+            '#fff',
+            '#3c3c3c',
+            '#a1a1a1',
+            '#e2e2e2',
+            '#57ccd2',
+            '#3eaeb4',
+            '#d3f9fb',
+            '#f2b17a',
+            '#f74f64'
+          ];
+        each item in data
+          li.list-box__item(style=`background-color: ${item}` )
+      .list-box__input
+        +input-field({ type, placeholder, value })(
+          id= id ? id : null
+        )
+        +icon-images('color-picker')
+
+//- Input Field Readonly
+mixin group-input-field-readonly({id, label, value })
+  .form-group.form-customize&attributes(attributes)
+    label= label
+    input.form-control(
+      type='text'
+      id= id ? id : null
+      value= value ? value : null
+      readonly
+    )
+
+//- Input Field Disabled
+mixin input-field-disabled({ type, placeholder, value, disabled })
+  input.form-control(
+    type= type ? type : 'text'
+    placeholder= placeholder ? placeholder : null
+    value= value ? value : null
+    disabled= disabled ? disabled : null
+    class=disabled ? `form-control--${disabled}` : null
+  )&attributes(attributes)
+
+//- Tooltip content for Group input field
+- var tooltipDescription = 'CVV is a security feature for "card not present" payment card transactions instituted to reduce the incidence of credit card fraud.';
+mixin tooltip-content()
+  .tooltip__content
+    h4(class='tooltip__title') What is security CVV？
+    p(class='tooltip__description')= tooltipDescription
+
+//- Input Field Tooltip Icon
+mixin group-input-field-tooltip-icon({ label, id, type, placeholder, value, tooltipIcon })
+  .form-group.form-customize&attributes(attributes)
+    label(
+      for= id && id
+    )= label
+      if tooltipIcon
+        span(class='tooltip-icon') ?
+          +tooltip-content()
+    +input-field({ type, placeholder, value })(
+      id= id && id
+    )
+
+//- Input Radio
+mixin group-input-radio({ name, id, label, value, checked, disabled })
+  .form-group.input-radio-custom(
+    class=disabled ? 'input-radio--disabled' : null
+  )&attributes(attributes)
+
+    if checked === true
+      input.input-checkbox(type='radio', name=name, id=id, checked='checked', disabled = disabled)
+    else
+      input.input-checkbox(type='radio', name=name, id=id, disabled = disabled)
+    label(for=id)= label
+
+//- Group Input Checkbox
+mixin group-input-checkbox({ name, id, label, value, checked , disabled, smallLabel, iconFont})
+  .form-group.input-checkbox-custom(
+    class=disabled ? 'input-checkbox--disabled' : null
+  )&attributes(attributes)
+    if checked === true
+      input.input-checkbox(type='checkbox', name=name, id=id, checked='checked', disabled = disabled)
+    else
+      input.input-checkbox(type='checkbox', name=name, id=id, disabled = disabled)
+    label(for=id)= label
+      if smallLabel
+        span= smallLabel
+    if (iconFont !== '' && iconFont !== undefined)
+      span.checkbox-icon
+        +icon-fonts(iconFont)
+
+//- Input Radio Dropdown
+mixin group-input-radio-dropdown({ name, id, label, value, checked })
+  .form-group.input-radio-dropdown&attributes(attributes)
+    if checked === true
+      input.input-checkbox(type='radio', name=name, id=id, checked='checked')
+    else
+      input.input-checkbox(type='radio', name=name, id=id)
+    label(for=id)= label
+
+//- Select option
+mixin selectbox({ id, options, size, disabled})
+  .select-box
+    select.custom-select(
+    class=size ? `custom-select--${size}` : null
+    disabled= disabled ? disabled : null
+    class=disabled ? `custom-select--${disabled}` : null
+    )&attributes(attributes)
+      each option, index in options
+        option(value=option.value)= option.display
+
+//- Group select option
+mixin group-selectbox({ label, id, options, size, smallLabel, noticeError })
+  .form-group.form-customize&attributes(attributes)
+    if label
+      label(
+        for= id ? id : null
+      )= label
+        if smallLabel
+        span= smallLabel
+    +selectbox({ id, options })
+    if noticeError
+      p.error-notice= noticeError
+
+//- Textarea
+mixin textarea({ placeholder, value, row })
+  textarea.form-control(
+    placeholder= placeholder ? placeholder : null
+    rows= row ? row : null
+    value= value ? value : null
+  )&attributes(attributes)
+
+//- Input Textarea has label
+mixin group-textarea({ label, id, placeholder, value, row})
+  .form-group.form-customize&attributes(attributes)
+    +textarea({ placeholder, value })(
+      id= id ? id : null
+      placeholder= placeholder ? placeholder : null
+      rows= row ? row : null
+      value= value ? value : null
+    )
+    label(
+      for= id ? id : null
+    )= label

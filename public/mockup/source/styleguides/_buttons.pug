@@ -1,0 +1,247 @@
+//-------------------------------------------------------
+//- Styleguides :: Buttons
+//-------------------------------------------------------
+
+//- Buttons :: Type
+h2 Buttons Type
+-
+  var buttonTypes = [
+    { type: 'primary' },
+    { type: 'secondary' },
+    { type: 'danger' }
+  ];
+.row
+  each val in buttonTypes
+    .col-4
+      .code-example
+        .demo
+          +buttons({
+            text: 'テキストデモ',
+            type: val.type
+          })
+        pre
+          code
+            | +buttons({
+            |   text: 'テキストデモ',
+            |   type: '#{val.type}'
+            | })
+
+//- Buttons :: Disable
+h2 Button Disable
+
+.row
+  .col-4
+    .code-example
+      .demo
+        +buttons-disable({
+          text: 'テキストデモ',
+          disabled: 'disabled',
+          size: 'small'
+        })
+      pre
+        code
+          | +buttons-disable({
+          |   text: 'テキストデモ',
+          |   disabled: 'disabled',
+          |   type: 'primary',
+          |   size: 'small'
+          | })
+
+  .col-4
+    .code-example
+      .demo
+        +buttons-disable({
+          text: 'テキストデモ',
+          disabled: 'disabled',
+          size: 'large'
+        })
+      pre
+        code
+          | +buttons-disable({
+          |   text: 'テキストデモ',
+          |   disabled: 'disabled',
+          |   type: 'primary',
+          |   size: 'large'
+          | })
+
+  .col-4
+    .code-example
+      .demo
+        +buttons-disable({
+          text: 'テキストデモ',
+          disabled: 'disabled',
+          size: 'small',
+          iconFont: 'fas fa-ban'
+        })
+      pre
+        code
+          | +buttons-disable({
+          |   text: 'テキストデモ',
+          |   type: 'primary',
+          |   size: 'small'
+          |   iconFont: 'fas fa-ban'
+          | })
+
+
+//- Buttons :: Size
+h2 Button Size
+-
+  var buttonSizes = [
+    { size: 'extra-small' },
+    { size: 'small' },
+    { size: 'large' }
+  ];
+.row
+  each val in buttonSizes
+    .col-4
+      .code-example
+        .demo
+          +buttons({
+            text: 'テキストデモ',
+            type: 'primary',
+            size: val.size
+          })
+        pre
+          code
+            | +buttons({
+            |   text: 'テキストデモ',
+            |   type: 'primary',
+            |   size: '#{val.size}'
+            | })
+    .col-4
+      .code-example
+        .demo
+          +buttons({
+            text: 'テキストデモ',
+            type: 'secondary',
+            size: val.size
+          })
+        pre
+          code
+            | +buttons({
+            |   text: 'テキストデモ',
+            |   type: 'secondary',
+            |   size: '#{val.size}'
+            | })
+
+    .col-4
+      .code-example
+        .demo
+          +buttons({
+            text: 'テキストデモ',
+            type: 'danger',
+            size: val.size
+          })
+        pre
+          code
+            | +buttons({
+            |   text: 'テキストデモ',
+            |   type: 'danger',
+            |   size: '#{val.size}'
+            | })
+
+//- Buttons :: Icon
+h2 Button Icon
+.row
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'primary',
+          iconFont: 'fas fa-file'
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'primary',
+          |   iconFont: 'fas fa-file'
+          | })
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'secondary',
+          iconFont: 'fas fa-file'
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'secondary',
+          |   iconFont: 'fas fa-file'
+          | })
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'danger',
+          iconFont: 'far fa-trash-alt'
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'danger',
+          |   iconFont: 'far fa-trash-alt'
+          | })
+
+//- Buttons :: Full size
+h2 Button Full size
+.row
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'primary',
+          size: 'large',
+          isFull: true
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'primary',
+          |   size: 'large',
+          |   isFull: true
+          | })
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'secondary',
+          size: 'large',
+          isFull: true
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'secondary',
+          |   size: 'large',
+          |   isFull: true
+          | })
+
+  .col-4
+    .code-example
+      .demo
+        +buttons({
+          text: 'テキストデモ',
+          type: 'danger',
+          size: 'large',
+          isFull: true
+        })
+      pre
+        code
+          | +buttons({
+          |   text: 'テキストデモ',
+          |   type: 'danger',
+          |   size: 'large',
+          |   isFull: true
+          | })
+

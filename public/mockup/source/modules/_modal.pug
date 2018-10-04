@@ -1,0 +1,26 @@
+//-------------------------------------------------------
+//- Modules :: Modal
+//-------------------------------------------------------
+
+mixin modal({targetValue, classToCustom, size, title, closeIcon, type })
+  .modal.fade(
+    id= targetValue ? targetValue : 'get-modal'
+    class=`modal-custom ${classToCustom ? classToCustom : ''}`
+    tabindex='-1'
+    role='dialog'
+    aria-hidden='true'
+    type=true
+  )
+    .modal-dialog(class= size && `modal-dialog--${size}` role='document')
+      .modal-content.box-shadow(class= targetValue && targetValue)&attributes(attributes)
+        if title
+          .modal-header
+            h2.modal-title= title
+        if closeIcon
+          span.modal-close(data-dismiss='modal')
+            +icon-fonts('fas fa-times')
+        .modal-body
+          if(type==true)
+            block modal-info
+          else
+            block modal-notice

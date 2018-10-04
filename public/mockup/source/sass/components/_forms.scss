@@ -1,0 +1,659 @@
+// ======================================================
+// Components :: Forms
+// ======================================================
+
+.form-control {
+  &--small {
+    border-color: $cl-light-gray;
+    border-radius: $border-radius-base;
+    font-size: $font-size-medium - 2px;
+    height: 32px;
+    padding: 10px;
+  }
+
+  &--disabled {
+    &:disabled {
+      border-radius: 0;
+      background: none;
+      padding: 8px 0;
+      line-height: 17px;
+      border-top: 1px solid transparent;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid $cl-light-gray;
+      color: $cl-light-gray;
+      margin-bottom: 8px;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.select-box {
+  .form-control {
+    border-radius: $border-radius-base;
+    font-size: $font-size-small;
+    height: 32px;
+    padding: 5px 10px;
+  }
+}
+
+.form-customize {
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
+
+  label {
+    position: absolute;
+    background-color: $cl-white;
+    width: 100%;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-normal;
+    color: $cl-gray;
+    top: 8px;
+    transition: all 450ms cubic-bezier(.23, 1, .32, 1) 0ms;
+    z-index: 1;
+    transform: scale(1) translate(0, 0);
+    transform-origin: left top 0;
+    pointer-events: none;
+    user-select: none;
+
+    &.label-ontop {
+      top: -18px;
+      font-size: $font-size-small;
+    }
+
+    span {
+      font-weight: $font-weight-base;
+      font-size: $font-size-small;
+      color: $cl-pink;
+    }
+
+    .tooltip {
+      &__content {
+        position: absolute;
+        z-index: 2;
+        bottom: 20px;
+        right: 16px;
+        width: 350px;
+        min-height: 142px;
+        max-height: 280px;
+        overflow: auto;
+        padding: 12px 20px;
+        background: $white;
+        border-radius: $border-radius-base;
+        box-shadow: 0 2px 4px rgba($black, .5);
+        display: none;
+      }
+
+      &__title {
+        margin-bottom: 18px;
+        text-align: center;
+        color: $cl-light-black;
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: 1.17;
+      }
+
+      &__description {
+        margin-bottom: 0;
+        text-align: left;
+        color: $cl-light-black;
+        font-size: $font-size-small;
+        line-height: 1.42;
+      }
+    }
+
+    .tooltip-icon {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 53px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      color: $white;
+      font-size: $font-size-small - 1px;
+      font-weight: $font-weight-bold;
+      line-height: 16px;
+      text-align: center;
+      background: $cl-light-black;
+      border-radius: 50%;
+
+      // scss-lint:disable SelectorDepth
+      // scss-lint:disable SelectorFormat
+      &:hover > .tooltip__content {
+        display: block;
+      }
+    }
+  }
+
+  &.form-readonly {
+    label {
+      position: relative;
+      top: 0;
+    }
+  }
+
+  &.form-group {
+    @include m('fix-width') {
+      .form-control {
+        width: 80px;
+
+        &::placeholder {
+          color: $cl-light-black;
+        }
+      }
+    }
+  }
+
+  &.form-error {
+
+    .form-control {
+      border-bottom-color: $cl-pink;
+
+      + label {
+        color: $cl-pink;
+      }
+
+      &:focus {
+        border-bottom-color: $cl-pink;
+
+        + label {
+          color: $cl-pink;
+        }
+      }
+    }
+  }
+
+  .save-changes {
+    display: none;
+    justify-content: flex-end;
+    margin-top: 7px;
+
+    .button + .button {
+      margin-left: 12px;
+    }
+  }
+
+  .form-control {
+    border-radius: 0;
+    padding: 8px 0;
+    line-height: 17px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $border-gray;
+    color: $cl-black;
+    font-size: $font-size-medium;
+
+    &::placeholder {
+      color: $cl-gray;
+    }
+
+    &:focus {
+      border-bottom-color: $cl-blue;
+    }
+
+    &:focus + label {
+      top: -18px;
+      color: $cl-blue;
+      font-size: $font-size-small;
+    }
+
+    &[readonly] {
+      background-color: transparent;
+      border: 0;
+      color: $cl-light-black;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  //scss-lint:disable QualifyingElement
+  input[type="password"],
+  input[type="text"] {
+    padding-right: 30px;
+
+    + label {
+      width: calc(100% - 30px);
+    }
+  }
+
+  .toggle-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: $font-size-xlarge;
+    color: $cl-light-gray;
+    cursor: pointer;
+
+    &.active {
+      color: $cl-blue;
+    }
+  }
+
+  .error-notice {
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $cl-pink;
+    line-height: 16px;
+    margin: 8px 0;
+  }
+
+  .note-text {
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $cl-black;
+    line-height: 16px;
+    margin: 8px 0;
+  }
+
+  &--selectbox {
+    label {
+      position: relative;
+      top: 0;
+      font-size: $font-size-small;
+    }
+
+    &.form-error {
+      label {
+        color: $cl-pink;
+      }
+    }
+  }
+
+  .custom-select {
+    border-radius: 0;
+    padding: 8px 0;
+    line-height: 17px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $border-gray;
+    color: $cl-black;
+    margin-bottom: 8px;
+    background: url('#{$path-image}/ic-arrow-down-gray.png') no-repeat right .25rem center;
+    padding-right: 25px;
+
+    @include m('disabled') {
+      border-bottom-color: $cl-light-gray;
+      color: $cl-light-gray;
+      background-image: url('#{$path-image}/ic-arrow-down-disable.png');
+    }
+
+    &:focus {
+      border-bottom-color: $cl-blue;
+      background-image: url('#{$path-image}/ic-arrow-down-blue.png');
+      box-shadow: none;
+    }
+  }
+}
+
+// List Input Color
+// ======================================================
+.form-list-color {
+  label {
+    position: relative;
+    width: 100%;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $cl-gray;
+    margin: 16px 0 0;
+  }
+}
+
+.list-box {
+  &__item {
+    width: 20px;
+    height: 20px;
+    border: 1px solid transparent;
+    border-radius: $border-radius-small;
+    position: relative;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: 6px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 26px;
+      height: 26px;
+      border-radius: $border-radius-base - 2px;
+      border: 2px solid $blue;
+      display: none;
+    }
+
+    &:hover {
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  &__input {
+    position: relative;
+
+    .icon-images {
+      position: absolute;
+      right: 6px;
+      top: 7px;
+      margin: auto;
+
+      @include m('color-picker') {
+        width: 20px;
+        height: 20px;
+        background-image: url('#{$path-image}/icon-color-picker.svg');
+      }
+    }
+
+    input {
+      padding: 6px 30px 6px 12px;
+      min-width: 202px;
+      font-size: $font-size-small;
+      border-radius: $border-radius-base;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Radio button
+// ======================================================
+.input-radio-custom {
+  position: relative;
+  margin-bottom: 8px;
+
+  &--inline {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  label {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-base;
+    color: $cl-light-black;
+    pointer-events: visible;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background-color: $cl-white;
+      border: 2px solid $cl-gray;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '\f192';
+      font-family: $font-family-icons-solid;
+      font-weight: 900;
+      position: absolute;
+      top: -8px;
+      left: 1px;
+      color: $cl-blue;
+      font-size: $font-size-xlarge;
+      opacity: 0;
+    }
+  }
+
+  // scss-lint:disable QualifyingElement
+  //scss-lint:disable NestingDepth
+  input[type='radio'] {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked {
+      ~ label {
+        color: $cl-blue;
+
+        &::before {
+          background-color: $cl-white;
+          border-color: $cl-blue;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.input-radio {
+  &--disabled {
+
+    opacity: .7;
+
+    //scss-lint:disable QualifyingElement
+
+    input[type='radio'] {
+
+      &:checked {
+        ~ label {
+          color: $cl-light-black;
+
+          //scss-lint:disable NestingDepth
+
+          &::before {
+            background-color: $cl-white;
+            border-color: $cl-light-black;
+          }
+
+          &::after {
+            color: $cl-light-black;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Checkbox
+// ======================================================
+//stylelint-disable-next-line
+.input-checkbox {
+  &--disabled {
+    opacity: .3;
+  }
+}
+
+// stylelint-disable no-descending-specificity
+.input-checkbox-custom {
+  position: relative;
+  margin-bottom: 8px;
+  height: 22px;
+
+  &--inline {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  label {
+    padding-left: 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-medium;
+    color: $cl-black;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background-color: $cl-white;
+      border: 2px solid $cl-gray;
+      border-radius: 3px;
+    }
+
+    &::after {
+      content: '\f14a';
+      font-family: $font-family-icons-solid;
+      font-weight: $font-weight-bold;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      color: $cl-blue;
+      font-size: 27px;
+      opacity: 0;
+    }
+
+    span {
+      font-size: $font-size-small;
+      font-weight: $font-weight-base;
+      color: $cl-gray;
+    }
+  }
+
+  // scss-lint:disable QualifyingElement
+  input[type='checkbox'] {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked {
+      ~ label {
+        // stylelint-disable-next-line max-nesting-depth
+        &::before {
+          opacity: 0;
+        }
+
+        // stylelint-disable-next-line max-nesting-depth
+        &::after {
+          opacity: 1;
+
+        }
+      }
+    }
+  }
+}
+// stylelint-enable
+
+// Radio button like selectbox options
+// ======================================================
+.input-radio-dropdown {
+  position: relative;
+  margin-bottom: 0;
+
+  // stylelint-disable-next-line no-descending-specificity
+  label {
+    position: relative;
+    width: calc(100% + 2px);
+    height: 32px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: $font-size-small;
+    color: $cl-gray;
+    margin-left: -1px;
+    margin-right: -1px;
+    text-align: center;
+    line-height: 32px;
+    font-weight: $font-weight-base;
+  }
+
+  // scss-lint:disable QualifyingElement
+  input[type='radio'] {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked {
+      ~ label {
+        color: $white;
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+// Texterea
+.form-textarea {
+  // stylelint-disable no-descending-specificity
+  .form-control {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid $border-gray;
+    border-radius: 0;
+    color: $cl-black;
+    padding: 8px 0;
+    resize: none;
+    word-wrap: break-word;
+
+    &:focus {
+      border-color: $cl-blue;
+    }
+
+    &::placeholder {
+      color: $cl-gray;
+    }
+  }
+}
+
+// Checkbox replace
+.checkbox-replace {
+  display: flex;
+  position: relative;
+
+  &__label {
+    background-color: $cl-white;
+    border: 1px solid $cl-light-gray;
+    border-radius: $border-radius-small;
+    cursor: pointer;
+    flex: 0 0 20px;
+    height: 20px;
+    margin: 0 15px 0 0;
+    position: relative;
+    transition: all 300ms ease-in-out;
+
+    input {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .icon-checked {
+      color: $white;
+      font-size: $font-size-medium;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      transition: 250ms all cubic-bezier(.455, .03, .515, .955);
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    font-weight: $font-weight-base;
+  }
+
+  &.checked {
+    // scss-lint:disable SelectorFormat
+    .checkbox-replace__label {
+      background-color: $cl-blue;
+      border-color: $cl-blue;
+
+      .icon-checked {
+        opacity: 1;
+      }
+    }
+  }
+}

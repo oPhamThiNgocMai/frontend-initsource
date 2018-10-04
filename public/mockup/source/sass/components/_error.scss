@@ -1,0 +1,23 @@
+// ======================================================
+// Components :: Errors
+// ======================================================
+
+.error {
+  color: $cl-pink;
+  padding: 7px 12px;
+  font-weight: $font-weight-base;
+  font-size: $font-size-small;
+  line-height: 20px;
+  margin-bottom: 0;
+
+  @include m('large') {
+    padding: 11px 17px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include m('text') {
+    background-color: transparent;
+    padding: 0;
+  }
+}

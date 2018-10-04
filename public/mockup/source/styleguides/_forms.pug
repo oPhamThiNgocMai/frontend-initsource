@@ -1,0 +1,410 @@
+//-------------------------------------------------------
+//- Styleguides :: Forms
+//-------------------------------------------------------
+
+h2 Input field
+
+.row
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-field({
+            label: '発注日',
+            id: 'example-11',
+            placeholder: '派遣期間'
+          })
+      pre
+        code
+          | form.form-custom
+          |   +group-input-field({
+          |     label: '発注日',
+          |     id: 'example-11',
+          |     placeholder: '派遣期間'
+          |   })
+
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-field-readonly({
+            label: '発注日',
+            value: 'Kazuki Jin'
+          })(class='form-readonly')
+      pre
+        code
+          | form.form-custom
+          |   +group-input-field-readonly({
+          |      label: '発注日',
+          |      value: 'Kazuki Jin'
+          |    })(class='form-readonly')
+
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-field({
+            label: '発注日',
+            id: 'example-11',
+            placeholder: '派遣期間',
+            noticeError: 'もう一度入力してください'
+          })(class='form-error')
+      pre
+        code
+          | form.form-custom
+          |   +group-input-field({
+          |     label: '発注日',
+          |     id: 'example-11',
+          |     placeholder: '派遣期間',
+          |     noticeError: 'もう一度入力してください'
+          |   })(class='form-error')
+
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-field({
+            label: '発注日',
+            smallLabel: '必須',
+            id: 'example-11',
+            placeholder: '派遣期間',
+            noteText: 'これはメモのテキストです'
+          })
+      pre
+        code
+          | form.form-custom
+          |   +group-input-field({
+          |     label: '発注日',
+          |     smallLabel: '必須',
+          |     id: 'example-11',
+          |     placeholder: '派遣期間',
+          |     noteText: 'これはメモのテキストです'
+          |   })
+
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-field-tooltip-icon({
+            label: 'Security CVV',
+            id: 'id',
+            value: '***',
+            tooltipIcon: true
+          })
+      pre
+        code
+          | +group-input-field-tooltip-icon({
+          |    label: 'Security CVV',
+          |    id: 'id',
+          |    value: '***',
+          |    tooltipIcon: true
+          | })
+
+h2 Input file disabled
+
+.col-6
+    .code-example
+      .demo
+        +input-field-disabled({
+          value: '管理者',
+          disabled: 'disabled'
+        })
+      pre
+        code
+          | +input-field-disabled({
+          |    value: '管理者',
+          |    disabled: 'disabled'
+          | })
+
+h2 Texterea
+
+.row
+  .col-6
+    .code-example
+      .demo
+        form.form-group.form-customize
+          +textarea({
+            placeholder: 'コメントを書く',
+            row: '2'
+          })
+      pre
+        code
+          | form.form-group.form-customize
+          |   +textarea({
+          |     placeholder: 'コメントを書く'
+          |     row: '2'
+          |   })
+  .col-6
+    .code-example
+      .demo
+        +group-textarea({
+          label: '備考',
+          placeholder: 'コメントを書く',
+          row: '2'
+        })
+      pre
+        code
+          | +group-textarea({
+          |   label: '備考',
+          |   placeholder: 'コメントを書く',
+          |   row: '2'
+          | })
+
+h2 Radio button
+
+.row
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-radio({
+            name: 'language',
+            id: 'jp',
+            label: '日本語',
+            checked: true
+          })
+          +group-input-radio({
+            name: 'language',
+            id: 'en',
+            label: 'English'
+          })
+      pre
+        code
+          | +group-input-radio({
+          |   name: 'language',
+          |   id: 'jp',
+          |   label: '日本語',
+          |   checked: true
+          | })
+          | +group-input-radio({
+          |   name: 'language',
+          |   id: 'en',
+          |   label: 'English'
+          | })
+
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-radio({
+            name: 'language',
+            id: 'vn',
+            label: 'Viet Nam',
+            checked: true,
+            disabled: true
+          })
+          +group-input-radio({
+            name: 'language',
+            id: 'cn',
+            label: 'China',
+            disabled: true
+          })
+      pre
+        code
+          | +group-input-radio({
+          |   name: 'language',
+          |   id: 'vn',
+          |   label: 'Viet Nam',
+          |   checked: true,
+          |   disabled: true
+          | })
+          | +group-input-radio({
+          |   name: 'language',
+          |   id: 'cn',
+          |   label: 'China',
+          |   disabled: true
+          | })
+
+h2 Checkbox
+
+.row
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-checkbox({
+            name: 'checkbox',
+            id: 'checkbox1',
+            label: 'checkbox label 1',
+            checked: true
+          })
+          +group-input-checkbox({
+            name: 'checkbox',
+            id: 'checkbox2',
+            label: 'checkbox label 2'
+          })
+          +group-input-checkbox({
+              name: 'checkbox',
+              id: 'checkbox3',
+              label: 'checkbox label 3',
+              disabled: true
+          })
+      pre
+        code
+          | form.form-custom
+          |   +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox1',
+          |     label: 'checkbox label 1',
+          |     checked: true
+          |   })
+          |   +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox1',
+          |     label: 'checkbox label 2'
+          |   })
+          |  +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox1,
+          |     label: 'checkbox label 3',
+          |     disabled: true
+          |   })
+  .col-6
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-checkbox({
+            name: 'checkbox',
+            id: 'checkbox4',
+            checked: true
+          })(class='input-checkbox-custom--no-label')
+          +group-input-checkbox({
+            name: 'checkbox',
+            id: 'checkbox5'
+          })(class='input-checkbox-custom--no-label')
+          +group-input-checkbox({
+              name: 'checkbox',
+              id: 'checkbox5',
+              disabled: true
+          })(class='input-checkbox-custom--no-label')
+      pre
+        code
+          | form.form-custom
+          |   +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox3',
+          |     checked: true
+          |   })(class='input-checkbox-custom--no-label')
+          |   +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox4'
+          |   })(class='input-checkbox-custom--no-label')
+          |   +group-input-checkbox({
+          |     name: 'checkbox',
+          |     id: 'checkbox5',
+          |     disabled: true
+          |    })(class='input-checkbox-custom--no-label')
+
+h2 Selecbox
+
+.row
+  .col-6
+    .code-example
+      .demo
+        form.form-customize
+          -
+            var options = [
+              { value: 'owner', display: 'Owner' },
+              { value: 'member', display: 'Member' },
+              { value: 'viewer', display: 'Viewer' },
+              { value: 'non-member', display: 'Non-member' }
+            ];
+          +selectbox({
+            id: 'member',
+            options
+          })
+      pre
+        code
+          | form.form-customize
+          |   -
+          |     var options = [
+          |       { value: 'owner', display: 'Owner' },
+          |       { value: 'member', display: 'Member' },
+          |       { value: 'viewer', display: 'Viewer' },
+          |       { value: 'non-member', display: 'Non-member' }
+          |     ];
+          |   +selectbox({
+          |     id: 'member',
+          |     options
+          |   })
+  .col-6
+    .code-example
+      .demo
+        form.form-customize
+          -
+            var options = [
+            { value: 'owner', display: 'Owner' },
+            { value: 'member', display: 'Member' },
+            { value: 'viewer', display: 'Viewer' },
+            { value: 'non-member', display: 'Non-member' }
+            ];
+          +selectbox({
+              id: 'member',
+              size: 'small',
+              disabled: 'disabled',
+              options
+          })
+      pre
+        code
+          | form.form-customize
+          |   -
+          |     var options = [
+          |       { value: 'owner', display: 'Owner' },
+          |       { value: 'member', display: 'Member' },
+          |       { value: 'viewer', display: 'Viewer' },
+          |       { value: 'non-member', display: 'Non-member' }
+          |     ];
+          |   +selectbox({
+          |     id: 'member',
+          |     size: 'small',
+          |     disabled: 'disabled',
+          |     options
+          |   })
+  .col-6
+    .code-example
+      .demo
+        form.form-customize
+          -
+            var options = [
+              { value: 'us', display: 'USA' },
+              { value: 'jp', display: 'JAPAN' },
+              { value: 'vi', display: 'VIET NAM' },
+              { value: 'cn', display: 'CHINA' }
+            ];
+          +group-selectbox({
+            label: 'Country',
+            id: 'country',
+            options
+          })
+      pre
+        code
+          | form.form-customize
+          |   -
+          |     var options = [
+          |       { value: 'us', display: 'USA' },
+          |       { value: 'jp', display: 'JAPAN' },
+          |       { value: 'vi', display: 'VIET NAM' },
+          |       { value: 'cn', display: 'CHINA' }
+          |     ];
+          |   +group-selectbox({
+          |     label: 'Country',
+          |     id: 'country',
+          |     options
+          |   })
+
+  .col-12
+    .code-example
+      .demo
+        form.form-custom
+          +group-input-list-color({
+            label: 'List color for Ower and Staff',
+            id: 'example-12',
+            placeholder: 'Color code（ex：000000）'
+          })
+      pre
+        code
+          | form.form-custom
+          |  +group-input-list-color({
+          |     label: 'List color',
+          |     id: 'example-12',
+          |     placeholder: 'Color code（ex：000000）'

@@ -1,0 +1,31 @@
+//-------------------------------------------------------
+//- Modules :: Notices
+//-------------------------------------------------------
+
+mixin notices({ message, type, iconFont, iconImage })
+  .notice(
+    class= type ? `notice--${type}` : null
+  )&attributes(attributes)
+    if (iconFont !== '' && iconFont !== undefined)
+      +icon-fonts(iconFont)(class='notice__icon')
+    if (iconImage !== '' && iconImage !== undefined)
+      +icon-images(iconImage)(class='notice__icon')
+    | #{message}
+
+mixin notices-staff({ message, type, title, iconFont, iconImage, iconMess })
+  .notices-staff(
+    class= type ? `notices-staff--${type}` : null
+  )&attributes(attributes)
+    if title
+      .notices-staff__title
+        if (iconFont !== '' && iconFont !== undefined)
+          +icon-fonts(iconFont)(class='notices-staff__icon')
+        if (iconImage !== '' && iconImage !== undefined)
+          +icon-images(iconImage)(class='notices-staff__icon')
+        span= title
+
+    if message
+      .notices-staff__text
+        if (iconMess !== '' && iconMess !== undefined)
+          +icon-fonts(iconMess)(class='notices-staff__icon')
+        | #{message}
